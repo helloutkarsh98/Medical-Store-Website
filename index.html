@@ -45,6 +45,7 @@
       🛒
       <span class="cart-badge" id="cart-badge">0</span>
     </div>
+    <button class="btn btn-ghost btn-sm" id="theme-toggle" onclick="toggleTheme()" title="Toggle Dark/Light Mode">🌙</button>
     <button class="btn btn-ghost btn-sm auth-hidden" onclick="openModal('login-modal')">Sign In</button>
     <button class="btn btn-primary btn-sm auth-hidden" onclick="openModal('register-modal')">Register</button>
     <div class="user-avatar-nav auth-only hidden" id="user-avatar-nav" onclick="showPage('profile')" style="cursor:pointer">
@@ -473,6 +474,21 @@
     </div>
   </div>
 
+</div>
+
+<!-- AI CHATBOT WIDGET -->
+<div id="ai-chat-widget" class="ai-chat-widget closed">
+  <div class="chat-header" onclick="toggleChat()">
+    <span>🤖 MedQuick AI Assistant</span>
+    <span id="chat-toggle-icon">▲</span>
+  </div>
+  <div class="chat-body" id="chat-body">
+    <div class="chat-message bot-msg">Hello! I'm your MedQuick assistant. Describe your symptoms or ask me any health-related questions.</div>
+  </div>
+  <div class="chat-footer">
+    <input type="text" id="chat-input" placeholder="Type a message..." onkeypress="handleChat(event)" />
+    <button class="btn btn-primary btn-sm" onclick="sendChatMessage()">Send</button>
+  </div>
 </div>
 
 <!-- MODALS -->

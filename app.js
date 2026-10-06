@@ -410,6 +410,28 @@ function renderOrderCard(order) {
       <div class="order-items-preview">
         ${order.items.map(item => `<div class="order-item-row"><span>${item.name}</span><span style="color:var(--text-secondary)">×${item.qty}</span><span style="color:var(--primary-light)">₹${item.price * item.qty}</span></div>`).join('')}
       </div>
+      
+      <!-- Visual Tracking Timeline -->
+      ${order.status !== 'cancelled' ? `
+      <div class="order-timeline" style="margin: 1rem 0; padding: 1rem 0; border-top: 1px solid var(--bg-glass-border); border-bottom: 1px solid var(--bg-glass-border); display: flex; justify-content: space-between; position: relative;">
+         <div style="position: absolute; top: 1.5rem; left: 12%; right: 12%; height: 2px; background: var(--bg-glass-border); z-index: 1;"></div>
+         ${['pending', 'confirmed', 'out_for_delivery', 'delivered'].map((step, i) => {
+           const statuses = ['pending', 'confirmed', 'out_for_delivery', 'delivered'];
+           const currentIdx = statuses.indexOf(order.status);
+           let state = 'future';
+           if (i < currentIdx) state = 'completed';
+           else if (i === currentIdx) state = 'current';
+           
+           const color = state === 'completed' ? 'var(--success)' : state === 'current' ? 'var(--primary)' : 'var(--text-muted)';
+           const bg = state === 'completed' ? 'var(--success)' : 'var(--bg-card)';
+           
+           return `<div style="z-index: 2; text-align: center; width: 25%;">
+             <div style="width: 1.2rem; height: 1.2rem; border-radius: 50%; background: ${bg}; border: 2px solid ${color}; margin: 0 auto 0.5rem;"></div>
+             <div style="font-size: 0.75rem; color: ${color}; font-weight: ${state === 'current' ? '600' : 'normal'}">${statusLabels[step].replace(/[^\w\s]/gi, '').trim()}</div>
+           </div>`;
+         }).join('')}
+      </div>` : ''}
+
       <div class="order-card-footer">
         <div>
           <span style="font-size:0.85rem;color:var(--text-secondary)">📍 ${order.address?.flat || ''} ${order.address?.full || 'N/A'}</span>
@@ -600,4 +622,75 @@ function renderPrescriptions() {
 
 function forgotPassword() {
   showToast('Password reset link sent to your email (demo)', 'info');
+}
+
+// =============================================
+// Theme Toggle Logic
+// =============================================
+function toggleTheme() {
+  const isLight = document.body.classList.toggle('light-mode');
+  const themeToggle = document.getElementById('theme-toggle');
+  themeToggle.textContent = isLight ? '🌞' : '🌙';
+  localStorage.setItem('mq_theme', isLight ? 'light' : 'dark');
+}
+
+// Init theme on load
+if (localStorage.getItem('mq_theme') === 'light') {
+  document.body.classList.add('light-mode');
+  const themeToggle = document.getElementById('theme-toggle');
+  if (themeToggle) themeToggle.textContent = '🌞';
+}
+
+// =============================================
+// AI Chatbot Logic
+// =============================================
+function toggleChat() {
+  const widget = document.getElementById('ai-chat-widget');
+  const icon = document.getElementById('chat-toggle-icon');
+  widget.classList.toggle('closed');
+  icon.textContent = widget.classList.contains('closed') ? '▲' : '▼';
+}
+
+function handleChat(e) {
+  if (e.key === 'Enter') {
+    sendChatMessage();
+  }
+}
+
+function sendChatMessage() {
+  const input = document.getElementById('chat-input');
+  const msg = input.value.trim();
+  if (!msg) return;
+
+  const chatBody = document.getElementById('chat-body');
+  
+  // Add user message
+  const userDiv = document.createElement('div');
+  userDiv.className = 'chat-message user-msg';
+  userDiv.textContent = msg;
+  chatBody.appendChild(userDiv);
+  
+  input.value = '';
+  chatBody.scrollTop = chatBody.scrollHeight;
+
+  // Simulate AI Response
+  setTimeout(() => {
+    const aiDiv = document.createElement('div');
+    aiDiv.className = 'chat-message bot-msg';
+    
+    // Simple mock responses
+    let response = "I'm sorry, I'm just a demo AI. Please consult our pharmacist for medical advice.";
+    const lowerMsg = msg.toLowerCase();
+    if (lowerMsg.includes('fever') || lowerMsg.includes('headache')) {
+      response = "For mild fever or headache, you might consider Paracetamol. However, if symptoms persist, please consult a doctor.";
+    } else if (lowerMsg.includes('order') || lowerMsg.includes('delivery')) {
+      response = "We deliver within a 5 km radius in about 30 minutes. You can track your orders in the 'My Orders' section.";
+    } else if (lowerMsg.includes('hello') || lowerMsg.includes('hi')) {
+      response = "Hello there! How can I assist you with your medicines today?";
+    }
+
+    aiDiv.textContent = response;
+    chatBody.appendChild(aiDiv);
+    chatBody.scrollTop = chatBody.scrollHeight;
+  }, 1000);
 }
