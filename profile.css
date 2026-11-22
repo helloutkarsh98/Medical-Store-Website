@@ -63,3 +63,135 @@
   .profile-layout { grid-template-columns: 1fr; }
   .profile-sidebar { position: static; }
 }
+
+
+/* =========================================
+   MEDQUICK — PROFILE PAGE REFRESH
+   ========================================= */
+
+.profile-section {
+  background: #f7faf8;
+  color: #18352a;
+  min-height: 75vh;
+}
+
+.profile-container {
+  gap: 24px;
+}
+
+.profile-sidebar,
+.profile-card,
+.profile-content,
+.profile-panel {
+  background: #ffffff;
+  border: 1px solid #e4eee7;
+  border-radius: 18px;
+  box-shadow: 0 6px 22px rgba(24,53,42,.045);
+}
+
+.profile-sidebar {
+  padding: 22px;
+}
+
+.profile-avatar {
+  background: linear-gradient(135deg, #13845b, #20a875);
+  color: #ffffff;
+  border-radius: 50%;
+  font-weight: 800;
+}
+
+.profile-name,
+.profile-title,
+.profile-card h2,
+.profile-panel h2 {
+  color: #18352a;
+  font-weight: 800;
+}
+
+.profile-email,
+.profile-description {
+  color: #718378;
+}
+
+.profile-menu a,
+.profile-menu button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 12px 14px;
+  color: #62776c;
+  background: transparent;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .2s ease;
+}
+
+.profile-menu a:hover,
+.profile-menu button:hover,
+.profile-menu .active {
+  background: #edf7f1;
+  color: #13845b;
+}
+
+.profile-form input,
+.profile-form select,
+.profile-form textarea {
+  width: 100%;
+  background: #ffffff;
+  color: #18352a;
+  border: 1px solid #dce9e0;
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+
+.profile-form label {
+  display: block;
+  color: #526b5d;
+  font-weight: 600;
+  margin-bottom: 7px;
+}
+
+.profile-save-btn {
+  background: #13845b;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 22px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.profile-save-btn:hover {
+  background: #086b49;
+}
+
+.profile-order,
+.order-card {
+  background: #ffffff;
+  border: 1px solid #e4eee7;
+  border-radius: 13px;
+  padding: 16px;
+  margin-bottom: 13px;
+}
+
+.order-status {
+  background: #edf7f1;
+  color: #13845b;
+  border-radius: 30px;
+  padding: 5px 11px;
+  font-size: .8rem;
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .profile-container {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-sidebar {
+    padding: 16px;
+  }
+}
+
