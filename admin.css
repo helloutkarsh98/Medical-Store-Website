@@ -71,3 +71,225 @@
   .admin-stats-grid { grid-template-columns: repeat(2, 1fr); }
   .admin-table { display: block; overflow-x: auto; }
 }
+
+
+/* =========================================
+   MEDQUICK — ADMIN DASHBOARD REFRESH
+   ========================================= */
+
+.admin-section,
+.admin-dashboard {
+  background: #f5f8f6;
+  color: #18352a;
+  min-height: 100vh;
+}
+
+.admin-sidebar {
+  background: #123c2b;
+  color: #ffffff;
+  border-right: none;
+}
+
+.admin-sidebar a,
+.admin-sidebar button {
+  color: #c5d9cd;
+  border-radius: 10px;
+  transition: all .2s ease;
+}
+
+.admin-sidebar a:hover,
+.admin-sidebar button:hover,
+.admin-sidebar .active {
+  background: rgba(255,255,255,.12);
+  color: #ffffff;
+}
+
+.admin-main {
+  background: #f5f8f6;
+}
+
+.admin-header,
+.admin-topbar {
+  background: #ffffff;
+  border-bottom: 1px solid #e5eee8;
+  box-shadow: 0 3px 14px rgba(24,53,42,.035);
+}
+
+.admin-header h1,
+.admin-title {
+  color: #18352a;
+  font-weight: 800;
+}
+
+.admin-header p {
+  color: #718378;
+}
+
+.admin-card,
+.dashboard-card,
+.stat-card {
+  background: #ffffff;
+  border: 1px solid #e4eee7;
+  border-radius: 16px;
+  box-shadow: 0 5px 20px rgba(24,53,42,.045);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.admin-card:hover,
+.dashboard-card:hover,
+.stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(24,53,42,.08);
+}
+
+.admin-card h3,
+.dashboard-card h3,
+.stat-card h3 {
+  color: #62776c;
+  font-weight: 600;
+}
+
+.admin-card .stat-value,
+.dashboard-card .stat-value,
+.stat-card .stat-value {
+  color: #13845b;
+  font-size: 1.9rem;
+  font-weight: 800;
+}
+
+.admin-content,
+.admin-panel {
+  background: #ffffff;
+  border: 1px solid #e4eee7;
+  border-radius: 16px;
+  box-shadow: 0 5px 20px rgba(24,53,42,.035);
+  padding: 22px;
+}
+
+.admin-content h2,
+.admin-panel h2 {
+  color: #18352a;
+  font-weight: 800;
+}
+
+.admin-table,
+.admin-content table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  color: #526b5d;
+}
+
+.admin-table th,
+.admin-content th {
+  background: #eff7f2;
+  color: #355e48;
+  font-weight: 700;
+  padding: 14px;
+  text-align: left;
+}
+
+.admin-table td,
+.admin-content td {
+  padding: 14px;
+  border-bottom: 1px solid #edf2ee;
+}
+
+.admin-table tr:hover,
+.admin-content tbody tr:hover {
+  background: #f7fbf8;
+}
+
+.admin-btn,
+.admin-content button {
+  border-radius: 9px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all .2s ease;
+}
+
+.admin-primary-btn {
+  background: #13845b;
+  color: #ffffff;
+  border: none;
+  padding: 11px 18px;
+}
+
+.admin-primary-btn:hover {
+  background: #086b49;
+}
+
+.admin-secondary-btn {
+  background: #edf7f1;
+  color: #13845b;
+  border: 1px solid #d5eadb;
+  padding: 10px 16px;
+}
+
+.admin-danger-btn {
+  background: #fff0f0;
+  color: #c94b4b;
+  border: 1px solid #f2dada;
+  padding: 9px 13px;
+}
+
+.admin-content input,
+.admin-content select,
+.admin-content textarea {
+  background: #ffffff;
+  color: #18352a;
+  border: 1px solid #dce9e0;
+  border-radius: 9px;
+  padding: 11px 13px;
+}
+
+.admin-content label {
+  color: #526b5d;
+  font-weight: 600;
+}
+
+.status-pending {
+  background: #fff6e5;
+  color: #a96b12;
+}
+
+.status-confirmed,
+.status-delivered {
+  background: #edf7f1;
+  color: #13845b;
+}
+
+.status-cancelled {
+  background: #fff0f0;
+  color: #c94b4b;
+}
+
+.status-pending,
+.status-confirmed,
+.status-delivered,
+.status-cancelled {
+  display: inline-block;
+  border-radius: 30px;
+  padding: 5px 10px;
+  font-size: .78rem;
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .admin-sidebar {
+    width: 100%;
+  }
+
+  .admin-content,
+  .admin-panel {
+    padding: 15px;
+  }
+
+  .admin-table,
+  .admin-content table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+
