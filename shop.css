@@ -108,3 +108,197 @@
 }
 
 .hidden { display: none !important; }
+
+
+/* =========================================
+   MEDQUICK SHOP — MODERN UI REFRESH
+   ========================================= */
+
+.shop-section {
+  background: #f7faf8;
+  color: #18352a;
+}
+
+.shop-header {
+  padding: 3rem 0 2rem;
+}
+
+.shop-title {
+  color: #18352a;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.shop-subtitle {
+  color: #718378;
+  line-height: 1.7;
+}
+
+.shop-search,
+.search-box {
+  background: #ffffff;
+  border: 1px solid #dce9e0;
+  border-radius: 14px;
+  box-shadow: 0 5px 18px rgba(24,53,42,.04);
+}
+
+.shop-search input,
+.search-box input {
+  color: #18352a;
+}
+
+.shop-search input::placeholder,
+.search-box input::placeholder {
+  color: #9aaba0;
+}
+
+.category-filter,
+.category-btn,
+.filter-btn {
+  border: 1px solid #dce9e0;
+  background: #ffffff;
+  color: #62776c;
+  border-radius: 30px;
+  padding: 9px 17px;
+  transition: all .2s ease;
+}
+
+.category-filter:hover,
+.category-btn:hover,
+.filter-btn:hover {
+  border-color: #13845b;
+  color: #13845b;
+}
+
+.category-filter.active,
+.category-btn.active,
+.filter-btn.active {
+  background: #13845b;
+  color: #ffffff;
+  border-color: #13845b;
+}
+
+.products-grid,
+.medicine-grid,
+.shop-grid {
+  gap: 22px;
+}
+
+.product-card,
+.medicine-card {
+  background: #ffffff;
+  border: 1px solid #e4eee7;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(24,53,42,.045);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.product-card:hover,
+.medicine-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 35px rgba(24,53,42,.10);
+  border-color: #b9ddc7;
+}
+
+.product-card h3,
+.medicine-card h3 {
+  color: #18352a;
+  font-weight: 700;
+}
+
+.product-card p,
+.medicine-card p {
+  color: #718378;
+}
+
+.product-price {
+  color: #13845b;
+  font-size: 1.3rem;
+  font-weight: 800;
+}
+
+.product-stock,
+.stock-status {
+  color: #13845b;
+  font-weight: 600;
+}
+
+.out-of-stock {
+  color: #dc5252;
+}
+
+.prescription-badge,
+.rx-badge {
+  background: #fff5e5;
+  color: #a96b12;
+  border: 1px solid #f3dfb7;
+  border-radius: 7px;
+  padding: 4px 9px;
+  font-size: .75rem;
+  font-weight: 700;
+}
+
+.add-to-cart,
+.product-card button {
+  border-radius: 10px;
+  font-weight: 700;
+  transition: all .2s ease;
+}
+
+.add-to-cart:hover,
+.product-card button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(19,132,91,.18);
+}
+
+.shop-empty-state {
+  background: #ffffff;
+  border: 1px dashed #cbded1;
+  border-radius: 18px;
+  padding: 3rem 1rem;
+  color: #718378;
+  text-align: center;
+}
+
+.shop-sort select,
+.shop-filter select {
+  background: #ffffff;
+  color: #18352a;
+  border: 1px solid #dce9e0;
+  border-radius: 10px;
+  padding: 10px 14px;
+}
+
+@media (max-width: 768px) {
+  .shop-header {
+    padding: 2rem 0 1.5rem;
+  }
+
+  .products-grid,
+  .medicine-grid,
+  .shop-grid {
+    gap: 13px;
+  }
+
+  .product-card,
+  .medicine-card {
+    border-radius: 13px;
+  }
+
+  .category-filter,
+  .category-btn,
+  .filter-btn {
+    padding: 8px 13px;
+    font-size: .83rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .products-grid,
+  .medicine-grid,
+  .shop-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
